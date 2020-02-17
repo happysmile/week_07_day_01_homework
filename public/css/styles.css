@@ -1,0 +1,18 @@
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li.high-priority {
+  color: red;
+  border: 1px solid red;
+}
+
+li.low-priority {
+  color: blue;
+  border: 1px solid blue;
+}

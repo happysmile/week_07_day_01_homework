@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TO DO LIST</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Francesca's to do list</h1>
+      <form v-on:submit.prevent="addNewItem">
+        <fieldset>
+          <label for="list-item">New item:</label>
+          <input type="text" name="description" value="" v-model="newItem.description">
+        </fieldset>
+        <fieldset>
+          <input type="radio" name="priority" value="high" v-model="newItem.priority"> High
+          <input type="radio" name="priority" value="low" v-model="newItem.priority"> Low
+        </fieldset>
+        <fieldset>
+          <input type="submit" name="submit" value="Add Item">
+        </fieldset>
+      </form>
+
+      <ul id="to-do-list">
+        <li v-for="(item, index) in listItems" v-bind:class="(item.priority=='high')? 'high-priority' : 'low-priority'">
+          <span>{{item.description}}</span>
+          <button v-on:click="changePriority(index)">Change priority</button>
+        </li>
+      </ul>
+
+    </div>
+  </body>
+</html>
