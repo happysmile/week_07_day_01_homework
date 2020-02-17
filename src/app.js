@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     el: "#app",
     data: {
       listItems: [
-        { description: "Go to the post office", priority: "high" },
-        { description: "Call the dentist", priority: "low" },
-        { description: "Buy cereal", priority: "high" }
+        { description: "Go to the post office", priority: "high", isDone: false },
+        { description: "Call the dentist", priority: "low", isDone: false },
+        { description: "Buy cereal", priority: "high", isDone: false }
       ],
       newItem: {}
     },
@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
       addNewItem: function(){
         this.listItems.push({
           description: this.newItem.description,
-          priority: this.newItem.priority
+          priority: this.newItem.priority,
+          isDone: false
         });
         this.newItem = {};
       },
@@ -26,6 +27,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }else{
           this.listItems[index].priority = "low"
         }
+      },
+      showAsDone: function(index){
+        this.listItems[index].isDone = true
+      },
+      deleteItem: function(index){
+        const currentIndex = this.listItems.indexOf(this.listItems[index]);
+        this.listItems.splice(currentIndex, 1);
+      },
+      restoreItem: function(index){
+        this.listItems[index].isDone = false
       }
     }
   });

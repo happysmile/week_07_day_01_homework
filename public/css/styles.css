@@ -1,7 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+#app {
+  width: 500px;
+  margin: auto;
 }
 
 ul {
@@ -12,24 +17,50 @@ ul {
 li {
   margin-bottom: 10px;
   padding: 10px;
+  border-radius: 10px;
+}
+
+li button {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 li.high-priority {
   color: red;
   border: 1px solid red;
+  background-color: peachpuff;
+}
+
+li.high-priority button {
+  background-color: red;
 }
 
 li.low-priority {
   color: blue;
   border: 1px solid blue;
+  background-color: aliceblue;
+}
+
+li.low-priority button {
+  background-color: blue;
+}
+
+span.done {
+  color: lightgrey;
+  text-decoration: line-through;
 }
 
 form {
   display: flex;
   flex-direction: row;
-  background-color: lightgrey;
+  background-color: lightgreen;
+  align-items: baseline;
+  border-radius: 10px;
 }
 
 fieldset {
   border: none;
+  padding: 10px;
 }

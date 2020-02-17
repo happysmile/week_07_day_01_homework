@@ -24,9 +24,14 @@
       </form>
 
       <ul id="to-do-list">
-        <li v-for="(item, index) in listItems" v-bind:class="(item.priority=='high')? 'high-priority' : 'low-priority'">
-          <span>{{item.description}}</span>
-          <button v-on:click="changePriority(index)">Change priority</button>
+        <!-- v-bind:style= "[condition_1 ? condition_2 ? {styleA} : {styleB} : {styleC}]"  -->
+        <li v-for="(item, index) in listItems"
+        v-bind:class="(item.priority=='high')? 'high-priority' : 'low-priority'">
+          <span v-bind:class="item.isDone? 'done' : 'not-done'">{{item.description}}</span>
+          <button v-if="!item.isDone" v-on:click="changePriority(index)">Change priority</button>
+          <button v-if="!item.isDone" v-on:click="showAsDone(index)">I've done this!</button>
+          <button v-if="item.isDone" v-on:click="restoreItem(index)">Restore</button>
+          <button v-on:click="deleteItem(index)">Delete</button>
         </li>
       </ul>
 
