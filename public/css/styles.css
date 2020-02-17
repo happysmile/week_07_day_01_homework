@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 ul {
   padding: 0;
   list-style: none;
@@ -5,6 +11,7 @@ ul {
 
 li {
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 li.high-priority {
@@ -15,4 +22,14 @@ li.high-priority {
 li.low-priority {
   color: blue;
   border: 1px solid blue;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgrey;
+}
+
+fieldset {
+  border: none;
 }
